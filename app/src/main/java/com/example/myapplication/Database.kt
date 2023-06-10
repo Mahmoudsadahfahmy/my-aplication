@@ -1,10 +1,11 @@
 package com.example.myapplication
 
+import android.content.Context
 import androidx.room.Room
 import androidx.room.RoomDatabase
 
 
-@androidx.room.Database(entities = [Posts::class], version = 1)
+@androidx.room.Database(entities = [PostModel::class], version = 1)
 abstract class Database : RoomDatabase() {
     abstract fun userDao(): PostsDao
 
@@ -12,14 +13,14 @@ abstract class Database : RoomDatabase() {
         @Volatile
         private var INSTANCE: Database? = null
 
-        fun getDataBase(context: MainActivity): Database {
+        fun getDataBase(context: Context): Database {
             val tempInstance = INSTANCE
             if (tempInstance != null) {
                 return tempInstance
             }
             synchronized(this) {
                 val instance =
-                    Room.databaseBuilder(context, Database::class.java, "Posts_Data").fallbackToDestructiveMigration().build()
+                    Room.databaseBuilder(context.applicationContext, Database::class.java, "Posts_Data").fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 return instance
             }
