@@ -20,7 +20,7 @@
         android:id="@+id/nameText"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:text="Mahmoud"/>
+     />
 
     <TextView
         android:layout_width="wrap_content"
@@ -29,7 +29,7 @@
         android:id="@+id/ageText"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:text="22"/>
+        />
 
     <TextView
         android:layout_width="wrap_content"
@@ -38,16 +38,29 @@
         android:id="@+id/numberText"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:text="01011822030"/>
+       />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="end"
-        android:backgroundTint="@color/purple_200"
-        android:text="delete"
-        android:textSize="12dp"
+        android:backgroundTint="#02A9F4"
+        android:text="@string/deletebutton"
+        android:textSize="12sp"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/white"
         android:id="@+id/deleteButton"/>
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="end"
+        android:backgroundTint="#02A9F4"
+        android:text="@string/change"
+        android:textSize="12sp"
+        android:layout_marginTop="3dp"
+        android:background="@drawable/button_shape"
+        android:textColor="@color/white"
+        android:id="@+id/changeButton"/>
 
 
     <TextView
@@ -56,7 +69,9 @@
         android:padding="8dp"
         android:textColor="@color/white"
         android:textSize="20sp"
-        android:text="________________________________________"/>
+        android:text="_________________________________________"/>
+
+
 
 </LinearLayout>
 

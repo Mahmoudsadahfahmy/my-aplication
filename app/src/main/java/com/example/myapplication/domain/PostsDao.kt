@@ -1,8 +1,9 @@
-package com.example.myapplication
+package com.example.myapplication.domain
 
 import androidx.room.Delete
 import androidx.room.Insert
 import androidx.room.Query
+import com.example.myapplication.domain.PostModel
 
 @androidx.room.Dao
 interface PostsDao {
@@ -14,4 +15,8 @@ interface PostsDao {
 
     @Insert
     fun insert(posts: PostModel)
+
+    @Delete
+    fun deleteAll(deleteAllPosts:List<PostModel>)
+
 }

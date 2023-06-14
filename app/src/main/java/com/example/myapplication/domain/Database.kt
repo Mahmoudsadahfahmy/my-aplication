@@ -1,4 +1,4 @@
-package com.example.myapplication
+package com.example.myapplication.domain
 
 import android.content.Context
 import androidx.room.Room

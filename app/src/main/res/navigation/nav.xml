@@ -6,14 +6,14 @@
     app:startDestination="@id/showFragment2">
     <fragment
         android:id="@+id/addFragment2"
-        android:name="com.example.myapplication.notes.AddFragment"
+        android:name="com.example.myapplication.ui.AddFragment"
         android:label="fragment_add"
         tools:layout="@layout/fragment_add" >
 
     </fragment>
     <fragment
         android:id="@+id/showFragment2"
-        android:name="com.example.myapplication.notes.ShowFragment"
+        android:name="com.example.myapplication.ui.ShowFragment"
         android:label="fragment_show"
         tools:layout="@layout/fragment_show" >
         <action
