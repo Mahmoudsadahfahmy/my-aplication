@@ -8,11 +8,9 @@ import androidx.room.RoomDatabase
 @androidx.room.Database(entities = [PostModel::class], version = 1)
 abstract class Database : RoomDatabase() {
     abstract fun userDao(): PostsDao
-
     companion object {
         @Volatile
         private var INSTANCE: Database? = null
-
         fun getDataBase(context: Context): Database {
             val tempInstance = INSTANCE
             if (tempInstance != null) {

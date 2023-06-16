@@ -1,5 +1,6 @@
 package com.example.myapplication.ui
 
+import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -30,14 +31,14 @@ class ShowFragment : Fragment() {
         btnNavigateToAdd.setOnClickListener {
             navController.navigate(R.id.action_showFragment2_to_addFragment2)
         }
-
         CoroutineScope(Dispatchers.IO).launch {
-                val data = database.userDao().getPosts()
-                val recyclerRoom = RecyclerRoom(data, database, recyclerView,navController,findNavController())
-                recyclerView.adapter = recyclerRoom
-                recyclerView.layoutManager =
-                    LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
-            }
+            val data = database.userDao().getPosts()
+            val recyclerRoom =
+                RecyclerRoom(data, database, recyclerView, navController, findNavController())
+            recyclerView.adapter = recyclerRoom
+            recyclerView.layoutManager =
+                LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+        }
 
         deleteAll.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
@@ -52,10 +53,9 @@ class ShowFragment : Fragment() {
                 )
                 recyclerView.adapter = recyclerRoom
             }
-            recyclerView.layoutManager =LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+            recyclerView.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         }
         return view
-
     }
 }
 

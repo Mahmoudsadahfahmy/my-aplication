@@ -10,4 +10,5 @@
     <string name="name">name</string>
     <string name="deletebutton">delete</string>
     <string name="change">add</string>
+    <string name="update">update</string>
 </resources>
