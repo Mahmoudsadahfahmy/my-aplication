@@ -11,4 +11,6 @@
     <string name="deletebutton">delete</string>
     <string name="change">add</string>
     <string name="update">update</string>
+    <string name="line">_______________________________________</string>
+    <string name="edit">edit</string>
 </resources>

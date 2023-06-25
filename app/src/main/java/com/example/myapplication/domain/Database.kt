@@ -8,6 +8,7 @@ import androidx.room.RoomDatabase
 @androidx.room.Database(entities = [PostModel::class], version = 1)
 abstract class Database : RoomDatabase() {
     abstract fun userDao(): PostsDao
+
     companion object {
         @Volatile
         private var INSTANCE: Database? = null
@@ -18,7 +19,11 @@ abstract class Database : RoomDatabase() {
             }
             synchronized(this) {
                 val instance =
-                    Room.databaseBuilder(context.applicationContext, Database::class.java, "Posts_Data").fallbackToDestructiveMigration().build()
+                    Room.databaseBuilder(
+                        context.applicationContext,
+                        Database::class.java,
+                        "Posts_Data"
+                    ).fallbackToDestructiveMigration().build()
                 INSTANCE = instance
                 return instance
             }

@@ -1,6 +1,5 @@
 package com.example.myapplication.ui
 
-import android.annotation.SuppressLint
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
@@ -12,6 +11,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.myapplication.domain.Database
 import com.example.myapplication.R
+import com.example.myapplication.domain.PostModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -33,24 +33,16 @@ class ShowFragment : Fragment() {
         }
         CoroutineScope(Dispatchers.IO).launch {
             val data = database.userDao().getPosts()
-            val recyclerRoom =
-                RecyclerRoom(data, database, recyclerView, navController, findNavController())
+            val recyclerRoom = RecyclerRoom(data, database, recyclerView, navController, findNavController())
             recyclerView.adapter = recyclerRoom
-            recyclerView.layoutManager =
-                LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
+            recyclerView.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)
         }
 
         deleteAll.setOnClickListener {
             CoroutineScope(Dispatchers.IO).launch {
                 database.userDao().deleteAll(database.userDao().getPosts())
                 val data = database.userDao().getPosts()
-                val recyclerRoom = RecyclerRoom(
-                    data,
-                    database,
-                    recyclerView,
-                    navController,
-                    findNavController()
-                )
+                val recyclerRoom = RecyclerRoom(data, database, recyclerView, navController, findNavController(),)
                 recyclerView.adapter = recyclerRoom
             }
             recyclerView.layoutManager = LinearLayoutManager(requireContext(), RecyclerView.VERTICAL, false)

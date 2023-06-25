@@ -8,9 +8,7 @@
         android:id="@+id/addFragment2"
         android:name="com.example.myapplication.ui.AddFragment"
         android:label="fragment_add"
-        tools:layout="@layout/fragment_add" >
-
-    </fragment>
+        tools:layout="@layout/fragment_add" />
     <fragment
         android:id="@+id/showFragment2"
         android:name="com.example.myapplication.ui.ShowFragment"
@@ -19,5 +17,8 @@
         <action
             android:id="@+id/action_showFragment2_to_addFragment2"
             app:destination="@id/addFragment2" />
+        <argument
+            android:name="postname"
+            app:argType="string" />
     </fragment>
 </navigation>
